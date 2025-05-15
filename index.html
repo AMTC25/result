@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IIT Roorkee - B.Tech Result Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f0ff;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .form-container, .result-container {
+      background: white;
+      border: 2px solid #0077cc;
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      height: 100px;
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #003366;
+    }
+
+    .info, .subjects, .total, .guidelines {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #0077cc;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #cce6ff;
+    }
+
+    .footer {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 30px;
+      color: #004080;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      margin-right: 10px;
+      border: 1px solid #0077cc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-weight: bold;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .not-found {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .guidelines {
+      font-size: 14px;
+      color: #003366;
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0077cc;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      z-index: 9999;
+      animation: fadeOut 5s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div class="popup" id="popup">🎉 Result is Live Now!</div>
+
+<!-- FORM -->
+<div class="form-container">
+  <div class="logo">
+    <img src="https://i.postimg.cc/8kBXt57W/Indian-Institute-of-Technology-Roorkee-the-first-IIT-to-undertake-the-digital-transformation-journe.jpg" alt="IIT Roorkee Logo">
+  </div>
+  <div class="header">
+    INDIAN INSTITUTE OF TECHNOLOGY ROORKEE<br>
+    RESULT PORTAL - B.TECH (CSE)<br>
+    Enter your Enrollment Number to view result
+  </div>
+  <div style="text-align:center;">
+    <input type="text" id="erInput" placeholder="Enter ER Number (e.g. 23378952)">
+    <button onclick="checkResult()">Submit</button>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="resultBox"></div>
+
+<script>
+  function checkResult() {
+    const input = document.getElementById('erInput').value.trim();
+    const resultBox = document.getElementById('resultBox');
+
+    if (input === '23407214') {
+      resultBox.innerHTML = `
+      <div class="result-container">
+        <div class="logo">
+          <img src="https://i.postimg.cc/8kBXt57W/Indian-Institute-of-Technology-Roorkee-the-first-IIT-to-undertake-the-digital-transformation-journe.jpg" alt="IIT Roorkee Logo">
+        </div>
+        <div class="header">
+          INDIAN INSTITUTE OF TECHNOLOGY ROORKEE<br>
+          SEMESTER RESULT - B.TECH (CSE) - IV SEMESTER<br>
+          SESSION 2024-25
+        </div>
+
+        <div class="info">
+          <table>
+            <tr><td><strong>Student Name</strong></td><td>Abhay Rana</td></tr>
+            <tr><td><strong>Enrollment Number</strong></td><td>23407214</td></tr>
+            <tr><td><strong>Father's Name</strong></td><td>Vipin Kumar</td></tr>
+            <tr><td><strong>Mother's Name</strong></td><td>Seema Devi</td></tr>
+          </table>
+        </div>
+
+        <div class="subjects">
+          <table>
+            <thead>
+              <tr>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Maximum Marks</th>
+                <th>Marks Obtained</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>ESE321</td><td>Machine Learning</td><td>100</td><td>95</td></tr>
+              <tr><td>MTE308</td><td>Compiler Design</td><td>100</td><td>94</td></tr>
+              <tr><td>OSI303</td><td>Computer Networks</td><td>100</td><td>96</td></tr>
+              <tr><td>EEC322</td><td>Software Engineering</td><td>100</td><td>93</td></tr>
+              <tr><td>MSI324</td><td>Artificial Intelligence</td><td>100</td><td>97</td></tr>
+              <tr><td>OEC407</td><td>Open Elective - Robotics</td><td>100</td><td>93</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="total">
+          <table>
+            <tr><td><strong>Total Marks Obtained</strong></td><td><strong>568 / 600</strong></td></tr>
+            <tr><td><strong>Result</strong></td><td><strong>PASS</strong></td></tr>
+            <tr><td><strong>Rank in College</strong></td><td><strong>2nd</strong></td></tr>
+          </table>
+        </div>
+
+        <div class="guidelines">
+          <h4>📝 Disclaimer & Guidelines:</h4>
+          <ul>
+            <li>This result is provisional and subject to verification.</li>
+            <li>Kindly consult the Academic Section for official transcripts.</li>
+            <li>Any discrepancies should be reported within 7 working days.</li>
+            <li>This is a computer-generated result. No signature required.</li>
+          </ul>
+        </div>
+
+        <div class="footer">
+          *** Thank you for using AMTC Result Portal ***
+        </div>
+      </div>`;
+    } else {
+      resultBox.innerHTML = `<div class="form-container not-found">❌ Record not found for ER Number: ${input}</div>`;
+    }
+  }
+
+  setTimeout(() => {
+    const popup = document.getElementById('popup');
+    if (popup) popup.style.display = 'none';
+  }, 5000);
+</script>
+
+</body>
+</html>
